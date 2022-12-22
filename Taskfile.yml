@@ -1,0 +1,14 @@
+version: '3'
+
+vars:
+  DOCKER_IMAGE: kazhuravlev/img2webp
+
+tasks:
+  build:docker:
+    desc: build docker image
+    cmds:
+      - |
+        docker buildx build \
+          --platform=linux/amd64 \
+          -f Dockerfile \
+          -t {{ .DOCKER_IMAGE }} .
